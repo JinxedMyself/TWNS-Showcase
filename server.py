@@ -2,10 +2,12 @@ from flask import Flask, redirect, url_for, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import tweepy
+import secrets
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:C2FM8tnksy74djMnUWnjLchj@localhost/NS_Twitter'
-db = SQLAlchemy(app)
+app.secret_key = secrets.token_bytes(16)
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:C2FM8tnksy74djMnUWnjLchj@localhost/NS_Twitter'
+# db = SQLAlchemy(app)
 
 tweets = [
     {
